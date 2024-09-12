@@ -1,0 +1,6 @@
+whitelist:
+  # Whitelist permission control for specific sub-servers
+  enable: false
+  # List of sub-servers that will be controlled by white list
+  servers:
+    - "server"
