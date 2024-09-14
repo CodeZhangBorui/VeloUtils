@@ -1,0 +1,2 @@
+# Displayed when a player is not whitelisted on the specific sub-server.
+whitelist-no-permission: "<red>You do not have permission to connect to this server."

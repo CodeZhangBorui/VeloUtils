@@ -1,6 +1,7 @@
 package com.codezhangborui.velocityUtils.modules;
 
 import com.codezhangborui.velocityUtils.Configuration;
+import com.codezhangborui.velocityUtils.Messages;
 import com.velocitypowered.api.event.Subscribe;
 import com.velocitypowered.api.event.player.ServerPreConnectEvent;
 import net.kyori.adventure.text.TextComponent;
@@ -21,7 +22,7 @@ public class ServerWhitelist {
             if (!event.getPlayer().hasPermission("velocityutils.whitelist." + event.getOriginalServer().getServerInfo().getName())) {
                 logger.info("Player " + event.getPlayer().getUsername() + " does not have permission to connect to server " + event.getOriginalServer().getServerInfo().getName());
                 event.getPlayer().sendMessage(buildMessage(
-                        (TextComponent) MiniMessage.miniMessage().deserialize("<red>你没有权限连接到这个服务器！")
+                        (TextComponent) MiniMessage.miniMessage().deserialize(Messages.getString("whitelist-no-permission"))
                 ));
                 event.setResult(ServerPreConnectEvent.ServerResult.denied());
             }

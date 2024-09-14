@@ -1,6 +1,7 @@
 package com.codezhangborui.velocityUtils.commands;
 
 import com.codezhangborui.velocityUtils.Configuration;
+import com.codezhangborui.velocityUtils.Messages;
 import com.velocitypowered.api.command.CommandSource;
 import com.velocitypowered.api.command.SimpleCommand;
 import com.velocitypowered.api.proxy.ConsoleCommandSource;

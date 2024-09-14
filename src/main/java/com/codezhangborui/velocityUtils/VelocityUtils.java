@@ -15,12 +15,7 @@ import java.util.logging.Logger;
 
 import static com.codezhangborui.velocityUtils.Utils.loggerName;
 
-@Plugin(
-        id = "velocityutils",
-        name = "VelocityUtils",
-        version = BuildConstants.VERSION,
-        authors = {"CodeZhangborui"}
-)
+@Plugin(id = "velocityutils", name = "VelocityUtils", version = BuildConstants.VERSION, authors = {"CodeZhangborui"})
 public class VelocityUtils {
 
     private final Logger logger = Logger.getLogger(loggerName);
@@ -40,8 +35,25 @@ public class VelocityUtils {
             e.printStackTrace();
             return false;
         }
-        Configuration.setDefault("whitelist.enable", false, "Whitelist permission control for specific sub-servers");
-        Configuration.setDefault("whitelist.servers", new String[]{"server"}, "List of sub-servers that will be controlled by white list");
+        Configuration.setDefault(
+                "whitelist.enable",
+                false,
+                "Whitelist permission control for specific sub-servers");
+        Configuration.setDefault(
+                "whitelist.servers",
+                new String[]{"server"},
+                "List of sub-servers that will be controlled by white list");
+        try {
+            Messages.init(dataDirectory);
+        } catch (Exception e) {
+            logger.severe("Could not load messages file.");
+            e.printStackTrace();
+            return false;
+        }
+        Messages.setDefault(
+                "whitelist-no-permission",
+                "<red>You do not have permission to connect to this server!",
+                "Displayed when a player is not whitelisted on the specific sub-server.");
         return true;
     }
 
@@ -53,7 +65,7 @@ public class VelocityUtils {
             logger.severe("Failed to load configuration. Disabling plugin.");
             return;
         }
-        if(Configuration.getBoolean("whitelist.enable")) {
+        if (Configuration.getBoolean("whitelist.enable")) {
             server.getEventManager().register(this, new ServerWhitelist());
             logger.info("Module ServerWhitelist enabled");
         }
