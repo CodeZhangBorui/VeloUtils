@@ -5,11 +5,14 @@ import com.velocitypowered.api.command.CommandSource;
 import com.velocitypowered.api.command.SimpleCommand;
 import com.velocitypowered.api.proxy.ConsoleCommandSource;
 import net.kyori.adventure.text.Component;
+import net.kyori.adventure.text.TextComponent;
+import net.kyori.adventure.text.format.NamedTextColor;
+import net.kyori.adventure.text.minimessage.MiniMessage;
 
 import java.util.Arrays;
 import java.util.List;
 
-import static com.codezhangborui.velocityUtils.Utils.messageHeader;
+import static com.codezhangborui.velocityUtils.Utils.buildMessage;
 
 public class VelocityUtilsCommand implements SimpleCommand {
 
@@ -23,12 +26,25 @@ public class VelocityUtilsCommand implements SimpleCommand {
         if (source instanceof ConsoleCommandSource || source.hasPermission("velocityutils.admin")) {
             if (args.length > 0 && args[0].equalsIgnoreCase("reload")) {
                 Configuration.reload();
-                source.sendMessage(Component.text(messageHeader + "Configuration of VelocityUtils reloaded successfully."));
+                source.sendMessage(buildMessage(
+                        Component.text("Configuration has been successfully reloaded.", NamedTextColor.GREEN)
+                ));
+            } else if(args.length > 0 && args[0].equalsIgnoreCase("help")) {
+                source.sendMessage(buildMessage(
+                        Component.text("Usage: /vutils <reload>")
+                ));
             } else {
-                source.sendMessage(Component.text(messageHeader + "Usage: /velocityutils reload"));
+                source.sendMessage(buildMessage(
+                        Component.text()
+                                .append(Component.text("Invalid command. ", NamedTextColor.RED))
+                                .append(Component.text("Use \"/vutils help\" for help", NamedTextColor.AQUA))
+                                .build()
+                ));
             }
         } else {
-            source.sendMessage(Component.text(messageHeader + "You do not have permission to execute this command."));
+            source.sendMessage(buildMessage(
+                        Component.text("You do not have permission to execute this command.", NamedTextColor.RED)
+                ));
         }
     }
 
