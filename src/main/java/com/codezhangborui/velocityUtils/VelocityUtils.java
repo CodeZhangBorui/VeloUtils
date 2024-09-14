@@ -58,7 +58,7 @@ public class VelocityUtils {
             logger.info("Module ServerWhitelist enabled");
         }
         CommandManager commandManager = server.getCommandManager();
-        commandManager.register(commandManager.metaBuilder("velocityutils").build(), new VelocityUtilsCommand());
+        commandManager.register(commandManager.metaBuilder("vutils").build(), new VelocityUtilsCommand());
         logger.info("Initialization complete. VelocityUtils is now active.");
     }
 }
