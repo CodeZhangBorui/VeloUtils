@@ -5,7 +5,7 @@ import net.kyori.adventure.text.TextComponent;
 import net.kyori.adventure.text.format.NamedTextColor;
 
 public class Utils {
-    public static String loggerName = "\033[95mVelocity\033[35mUtils\033[0m";
+    public final static String loggerName = "\033[95mVelocity\033[35mUtils\033[0m";
     public static TextComponent buildMessage(TextComponent message) {
         return Component.text()
             .append(Component.text("[", NamedTextColor.GRAY))

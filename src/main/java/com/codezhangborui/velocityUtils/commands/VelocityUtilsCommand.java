@@ -1,14 +1,11 @@
 package com.codezhangborui.velocityUtils.commands;
 
 import com.codezhangborui.velocityUtils.Configuration;
-import com.codezhangborui.velocityUtils.Messages;
 import com.velocitypowered.api.command.CommandSource;
 import com.velocitypowered.api.command.SimpleCommand;
 import com.velocitypowered.api.proxy.ConsoleCommandSource;
 import net.kyori.adventure.text.Component;
-import net.kyori.adventure.text.TextComponent;
 import net.kyori.adventure.text.format.NamedTextColor;
-import net.kyori.adventure.text.minimessage.MiniMessage;
 
 import java.util.Arrays;
 import java.util.List;
