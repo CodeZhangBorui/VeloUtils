@@ -1,6 +1,7 @@
 package com.codezhangborui.velocityUtils;
 
 import com.codezhangborui.velocityUtils.commands.VelocityUtilsCommand;
+import com.codezhangborui.velocityUtils.modules.ServerLinks;
 import com.codezhangborui.velocityUtils.modules.ServerWhitelist;
 import com.google.inject.Inject;
 import com.velocitypowered.api.command.CommandManager;
@@ -11,6 +12,9 @@ import com.velocitypowered.api.plugin.annotation.DataDirectory;
 import com.velocitypowered.api.proxy.ProxyServer;
 
 import java.nio.file.Path;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
 import java.util.logging.Logger;
 
 import static com.codezhangborui.velocityUtils.Utils.loggerName;
@@ -43,6 +47,18 @@ public class VelocityUtils {
                 "whitelist.servers",
                 new String[]{"server"},
                 "List of sub-servers that will be controlled by white list");
+        List<Map<String, String>> defaultLinks = Arrays.asList(
+                Map.of("display", "Website", "url", "https://example.com"),
+                Map.of("display", "Discord", "url", "https://discord.gg/invite")
+        );
+        Configuration.setDefault(
+                "serverlinks.enable",
+                false,
+                "Show custom URLs that servers can show in player pause menus.");
+        Configuration.setDefault(
+                "serverlinks.links",
+                defaultLinks,
+                "List of custom URLs that servers can show in player pause menus.");
         try {
             Messages.init(dataDirectory);
         } catch (Exception e) {
@@ -68,6 +84,10 @@ public class VelocityUtils {
         if (Configuration.getBoolean("whitelist.enable")) {
             server.getEventManager().register(this, new ServerWhitelist());
             logger.info("Module ServerWhitelist enabled");
+        }
+        if (Configuration.getBoolean("serverlinks.enable")) {
+            server.getEventManager().register(this, new ServerLinks());
+            logger.info("Module ServerLinks enabled");
         }
         CommandManager commandManager = server.getCommandManager();
         commandManager.register(commandManager.metaBuilder("vutils").build(), new VelocityUtilsCommand());

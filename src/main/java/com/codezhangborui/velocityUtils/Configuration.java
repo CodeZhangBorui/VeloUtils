@@ -2,12 +2,17 @@ package com.codezhangborui.velocityUtils;
 
 import org.bspfsystems.yamlconfiguration.file.FileConfiguration;
 import org.bspfsystems.yamlconfiguration.file.YamlConfiguration;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.UnmodifiableView;
 
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
 import java.util.logging.Logger;
 
 import static com.codezhangborui.velocityUtils.Utils.loggerName;
@@ -75,6 +80,19 @@ public static void setDefault(String path, Object value, String... comment) {
     public static String[] getStringList(String path) {
         return config.getStringList(path).toArray(new String[0]);
     }
+
+    public static List<Map<String, Object>> getMapList(String path) {
+    List<Map<String, Object>> mapList = new ArrayList<>();
+    List<?> list = config.getList(path);
+    if (list != null) {
+        for (Object item : list) {
+            if (item instanceof Map) {
+                mapList.add((Map<String, Object>) item);
+            }
+        }
+    }
+    return mapList;
+}
 
     public static void set(String path, Object value) {
         config.set(path, value);
