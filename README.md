@@ -1,14 +1,15 @@
 # VelocityUtils
 
-Adds a variety of useful functions to Velocity.
+Adds a variety of small but useful functions to Velocity.
 
 > [!NOTE]
 >
-> This plugin is under active development, and features may change or be removed at any time.
+> By default, all functions are disabled. Please edit the `config.yml` file to enable the functions.
 
 ## Current Features
 
 - Whitelist function for sub-servers
+- Server Links (List of custom URLs that servers can show in player pause menus, available on 1.21 and above clients)
 
 ## Getting Started
 
@@ -16,9 +17,13 @@ Adds a variety of useful functions to Velocity.
 2. Start up the Velocity server.
 3. Grant operators the `velocityutils.admin` permission.
 4. Edit the `/plugins/velocityutils/config.yml` file to enable/disable/configure features.
-5. If you change the status of a feature, you will need to restart the server for the changes to take effect.
+5. If you enable or disable a feature, you will need to restart the server for the changes to take effect.
 6. Use the `/velocityutils reload` command to reload the configuration.
 
 ## Wiki
 
 Working
+
+## License
+
+This project is licensed under the [MIT License](https://opensource.org/license/MIT).
