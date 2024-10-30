@@ -1,8 +1,8 @@
-package com.codezhangborui.velocityUtils;
+package com.codezhangborui.veloUtils;
 
-import com.codezhangborui.velocityUtils.commands.VelocityUtilsCommand;
-import com.codezhangborui.velocityUtils.modules.ServerLinks;
-import com.codezhangborui.velocityUtils.modules.ServerWhitelist;
+import com.codezhangborui.veloUtils.commands.VeloUtilsCommand;
+import com.codezhangborui.veloUtils.modules.ServerLinks;
+import com.codezhangborui.veloUtils.modules.ServerWhitelist;
 import com.google.inject.Inject;
 import com.velocitypowered.api.command.CommandManager;
 import com.velocitypowered.api.event.Subscribe;
@@ -17,10 +17,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.logging.Logger;
 
-import static com.codezhangborui.velocityUtils.Utils.loggerName;
+import static com.codezhangborui.veloUtils.Utils.loggerName;
 
-@Plugin(id = "velocityutils", name = "VelocityUtils", version = BuildConstants.VERSION, authors = {"CodeZhangborui"})
-public class VelocityUtils {
+@Plugin(id = "veloutils", name = "VeloUtils", version = BuildConstants.VERSION, authors = {"CodeZhangborui"})
+public class VeloUtils {
 
     private final Logger logger = Logger.getLogger(loggerName);
 
@@ -75,7 +75,7 @@ public class VelocityUtils {
 
     @Subscribe
     public void onProxyInitialization(ProxyInitializeEvent event) {
-        logger.info("Initializing VelocityUtils Version " + BuildConstants.VERSION + " by CodeZhangborui");
+        logger.info("Initializing VeloUtils Version " + BuildConstants.VERSION + " by CodeZhangborui");
         logger.info("Loading Configuration...");
         if (!loadConfig()) {
             logger.severe("Failed to load configuration. Disabling plugin.");
@@ -90,7 +90,7 @@ public class VelocityUtils {
             logger.info("Module ServerLinks enabled");
         }
         CommandManager commandManager = server.getCommandManager();
-        commandManager.register(commandManager.metaBuilder("vutils").build(), new VelocityUtilsCommand());
-        logger.info("Initialization complete. VelocityUtils is now active.");
+        commandManager.register(commandManager.metaBuilder("vutils").build(), new VeloUtilsCommand());
+        logger.info("Initialization complete. VeloUtils is now active.");
     }
 }

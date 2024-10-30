@@ -1,4 +1,4 @@
-package com.codezhangborui.velocityUtils;
+package com.codezhangborui.veloUtils;
 
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.TextComponent;

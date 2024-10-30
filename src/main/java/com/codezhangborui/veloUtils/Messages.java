@@ -1,4 +1,4 @@
-package com.codezhangborui.velocityUtils;
+package com.codezhangborui.veloUtils;
 
 import org.bspfsystems.yamlconfiguration.file.FileConfiguration;
 import org.bspfsystems.yamlconfiguration.file.YamlConfiguration;
@@ -10,7 +10,7 @@ import java.nio.file.Path;
 import java.util.Arrays;
 import java.util.logging.Logger;
 
-import static com.codezhangborui.velocityUtils.Utils.loggerName;
+import static com.codezhangborui.veloUtils.Utils.loggerName;
 
 public class Messages {
     private static FileConfiguration messages;

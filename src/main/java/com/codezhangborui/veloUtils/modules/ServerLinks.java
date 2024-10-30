@@ -1,6 +1,6 @@
-package com.codezhangborui.velocityUtils.modules;
+package com.codezhangborui.veloUtils.modules;
 
-import com.codezhangborui.velocityUtils.Configuration;
+import com.codezhangborui.veloUtils.Configuration;
 import com.velocitypowered.api.event.Subscribe;
 import com.velocitypowered.api.event.player.ServerConnectedEvent;
 import com.velocitypowered.api.util.ServerLink;
@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.logging.Logger;
 
-import static com.codezhangborui.velocityUtils.Utils.loggerName;
+import static com.codezhangborui.veloUtils.Utils.loggerName;
 
 public class ServerLinks {
     private static final Logger logger = Logger.getLogger(loggerName);

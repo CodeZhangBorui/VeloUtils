@@ -1,7 +1,6 @@
-package com.codezhangborui.velocityUtils.commands;
+package com.codezhangborui.veloUtils.commands;
 
-import com.codezhangborui.velocityUtils.Configuration;
-import com.codezhangborui.velocityUtils.modules.ServerLinks;
+import com.codezhangborui.veloUtils.Configuration;
 import com.velocitypowered.api.command.CommandSource;
 import com.velocitypowered.api.command.SimpleCommand;
 import com.velocitypowered.api.proxy.ConsoleCommandSource;
@@ -11,9 +10,9 @@ import net.kyori.adventure.text.format.NamedTextColor;
 import java.util.Arrays;
 import java.util.List;
 
-import static com.codezhangborui.velocityUtils.Utils.buildMessage;
+import static com.codezhangborui.veloUtils.Utils.buildMessage;
 
-public class VelocityUtilsCommand implements SimpleCommand {
+public class VeloUtilsCommand implements SimpleCommand {
 
     private static final List<String> COMMANDS = Arrays.asList("reload");
 
@@ -22,7 +21,7 @@ public class VelocityUtilsCommand implements SimpleCommand {
         CommandSource source = invocation.source();
         String[] args = invocation.arguments();
 
-        if (source instanceof ConsoleCommandSource || source.hasPermission("velocityutils.admin")) {
+        if (source instanceof ConsoleCommandSource || source.hasPermission("veloutils.admin")) {
             if (args.length > 0 && args[0].equalsIgnoreCase("reload")) {
                 Configuration.reload();
                 source.sendMessage(buildMessage(

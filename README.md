@@ -1,4 +1,4 @@
-# VelocityUtils
+# VeloUtils
 
 Adds a variety of small but useful functions to Velocity.
 
@@ -15,10 +15,10 @@ Adds a variety of small but useful functions to Velocity.
 
 1. Place the JAR file in the `/plugins` folder of your Velocity server.
 2. Start up the Velocity server.
-3. Grant operators the `velocityutils.admin` permission.
-4. Edit the `/plugins/velocityutils/config.yml` file to enable/disable/configure features.
+3. Grant operators the `veloutils.admin` permission.
+4. Edit the `/plugins/veloutils/config.yml` file to enable/disable/configure features.
 5. If you enable or disable a feature, you will need to restart the server for the changes to take effect.
-6. Use the `/velocityutils reload` command to reload the configuration.
+6. Use the `/veloutils reload` command to reload the configuration.
 
 ## Wiki
 

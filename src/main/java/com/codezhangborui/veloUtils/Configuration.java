@@ -1,9 +1,7 @@
-package com.codezhangborui.velocityUtils;
+package com.codezhangborui.veloUtils;
 
 import org.bspfsystems.yamlconfiguration.file.FileConfiguration;
 import org.bspfsystems.yamlconfiguration.file.YamlConfiguration;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.UnmodifiableView;
 
 import java.io.File;
 import java.io.IOException;
@@ -15,7 +13,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.logging.Logger;
 
-import static com.codezhangborui.velocityUtils.Utils.loggerName;
+import static com.codezhangborui.veloUtils.Utils.loggerName;
 
 public class Configuration {
     private static FileConfiguration config;

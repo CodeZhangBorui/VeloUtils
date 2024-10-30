@@ -1,4 +1,4 @@
-package com.codezhangborui.velocityUtils;
+package com.codezhangborui.veloUtils;
 
 // The constants are replaced before compilation
 public class BuildConstants {
