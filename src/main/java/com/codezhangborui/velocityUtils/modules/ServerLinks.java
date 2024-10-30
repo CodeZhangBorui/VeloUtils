@@ -20,6 +20,7 @@ public class ServerLinks {
     @Subscribe
     public void onServerConnected(ServerConnectedEvent event) {
         if (Configuration.getBoolean("serverlinks.enable")) {
+            if(event.getPlayer().getProtocolVersion().getProtocol() < 767) return;
             this.ServerLinkList.clear();
             List<Map<String, Object>> links = Configuration.getMapList("serverlinks.links");
             links.forEach(link -> {
